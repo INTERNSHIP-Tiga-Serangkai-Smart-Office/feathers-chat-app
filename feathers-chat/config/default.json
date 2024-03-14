@@ -1,0 +1,58 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "./public/",
+  "origins": [
+    "http://localhost:3030"
+  ],
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mssql": {
+    "client": "mssql",
+    "connection": 
+    {"user": "sa", 
+    "password": "12345", 
+    "server": "INBook_X1",
+    "database": "User", 
+    "options": {
+        "encrypt": false 
+        , "trustedConnection":true , "instanceName": "GIBRAN"
+        
+    }}
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "2T6fjM+5iUSvASuDVedfxQtQZk2A1erP",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "github": {
+        "key": "d33445af3dc538dff57e",
+        "secret": "93f5058158e9c4de4fb6061154237fac86011786"
+      },
+      "google": {
+        "key": "801866947278-a65uingijtvjed5n3mq24hld2sf0pute.apps.googleusercontent.com",
+        "secret": "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",
+        "scope": ["openid", "email"],
+        "nonce": true
+      }
+    }
+  }
+}
